@@ -30,5 +30,20 @@ def problem_b():
 
     return sum([y_counter[i] * i for i in x])
 
+def efficient_solution():
+    y_counter = {}
+    solution_a = 0
+
+    for i, j in zipped:
+        y_counter[j] = y_counter.get(j, 0) + 1
+        solution_a += abs(i - j)
+
+    solution_b = sum([y_counter.get(i, 0) * i for i in x])
+
+    print(f"Problem 1 answer: {solution_a}")
+    print(f"Problem 2 answer: {solution_b}")
+
 print(f"Problem 1 answer: {problem_a()}")
 print(f"Problem 2 answer: {problem_b()}")
+print("Efficient solution:")
+efficient_solution()
