@@ -1,4 +1,6 @@
 from functools import reduce
+from collections import Counter
+
 
 filename = 'input.txt'
 
@@ -16,10 +18,17 @@ y.sort()
 
 zipped = list(zip(x, y))
 
-def calculate_final(agg, input):
-    x, y = input
-    return agg + abs(x - y)
+def problem_a():
+    def calculate_final(agg, input):
+        x, y = input
+        return agg + abs(x - y)
 
-final = reduce(calculate_final, zipped, 0)
+    return reduce(calculate_final, zipped, 0)
 
-print(final)
+def problem_b():
+    y_counter = Counter(y)
+
+    return sum([y_counter[i] * i for i in x])
+
+print(f"Problem 1 answer: {problem_a()}")
+print(f"Problem 2 answer: {problem_b()}")
