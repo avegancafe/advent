@@ -31,6 +31,11 @@ def problem_b():
     return sum([y_counter[i] * i for i in x])
 
 def efficient_solution():
+    """
+    This solution is O(n log(n)) because of the sorting of the x and y arrays.
+    This specific part of the algorithm is O(n) because it iterates over the
+    zipped array once.
+    """
     y_counter = {}
     solution_a = 0
 
